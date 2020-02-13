@@ -1,0 +1,23 @@
+id: vscode
+name: Visual Studio Code
+description: Synchronize Visual Studio Code settings, key bindings, locale.
+targets:
+
+  # https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations
+  - type: add-files-to-bundle
+    id: settings
+    conditions:
+      - type: check-directories-existence
+        win:directories:
+          - ${folder:ApplicationData}\Code\User\
+        linux:directories:
+          - ${folder:Personal}/.config/Code/User/
+        macos:directories:
+          - ${folder:Personal}/Library/Application Support/Code/User/
+    win:base-path: ${folder:ApplicationData}\Code\User\
+    linux:base-path: ${folder:Personal}/.config/Code/User/
+    macos:base-path: ${folder:Personal}/Library/Application Support/Code/User/
+    files:
+      - ~/settings.json
+      - ~/keybindings.json
+      - ~/locale.json

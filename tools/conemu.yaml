@@ -1,0 +1,13 @@
+id: conemu
+name: ConEmu
+description: Handy Windows terminal
+targets:
+  - type: add-files-to-bundle
+    id: settings
+    conditions:
+      - type: check-files-existence
+        files:
+          - ${folder:ApplicationData}\ConEmu.xml
+    win:base-path: ${folder:ApplicationData}\
+    files:
+      - "~/ConEmu.xml"

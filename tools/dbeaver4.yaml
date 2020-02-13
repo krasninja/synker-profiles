@@ -1,0 +1,19 @@
+id: dbeaver4
+name: DBeaver
+description: Universal database manager
+targets:
+
+  - type: add-files-to-bundle
+    id: settings
+    conditions:
+    - type: check-directories-existence
+      directories:
+        - ${folder:UserProfile}/.dbeaver4
+    base-path: ${folder:UserProfile}/.dbeaver4
+    exclude-patterns:
+      - \.lock$
+      - \.bak$
+      - \.log$
+      - dbeaver-external-files.data$
+      - dbeaver-workspace.properties
+      - .plugins
